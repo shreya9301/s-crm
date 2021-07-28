@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<center><h1><b>CREATE A LEAD</h1></b></center>
+<a class="hover:text-blue-500" href="{% url 'leads:lead-list' %}"><img src="https://img.icons8.com/color/48/000000/circled-left--v3.png"/></a>
+<div class="container" style="background-color: rgb(168, 152, 170);color:cornsilk;height:800px;width: 700px;border-radius: 8px;margin-bottom: 20px;box-shadow:10px 10px 5px #6e6e6e;">
+    <form method="POST" style="width: 600px;">
+        {% csrf_token %}
+    {{form|crispy }}
+    <center><button class="btn btn-default" type ="submit">SUBMIT</button></center>
+    </form>
+</div>
+<br><br>
+{% endblock content %}

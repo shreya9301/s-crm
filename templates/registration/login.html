@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div style="background-color:#CBCDCB;margin-top: 60px;height:400px;width:600px;border-radius: 10px;" class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <br>
+            <center><h2 id="form-title">LOGIN</h2></center><br><br>
+            <div class="d-flex justify-content-center form_container">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <center><input class="btn login_btn" type="submit" value="LOGIN"></center>
+                </form>
+            </div>
+            <hr style="height:2px;border-width:0;background-color:gray;"/>
+            <center>
+                <div style="margin-bottom: 10px;">
+                    Forgot Password? <a href="{% url 'reset-password' %}" class="ml-2">Click Here</a>
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+{% endblock content %}

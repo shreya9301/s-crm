@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<a class="hover:text-blue-500" href="{% url 'leads:category-list' %}"><img src="https://img.icons8.com/color/48/000000/circled-left--v3.png"/></a>
+
+    <div class="container" style="background-color: floralwhite;height:130px;">
+        <center><h2>Are you sure you want to delete this category ?</h2></center>
+        <form method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+            <center><button type="submit" class="btn btn-danger">SUBMIT</button></center>
+        </form>
+    </div>  
+{% endblock content %}
+    

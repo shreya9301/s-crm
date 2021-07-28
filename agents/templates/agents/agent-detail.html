@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body>
+    <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container px-5 py-28 mx-auto">
+            <div class="lg:w-4/5 mx-auto flex flex-wrap ">
+                <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                    <h2 class="text-2xl title-font text-gray-500 tracking-widest">AGENT NAME</h2>
+                    <div style="width:200px;">
+                        <h1 class="text-5xl text-gray-900 title-font font-medium mb-4">{{agent.user.username}} 
+                            <a href="{% url 'agents:agent-delete' agent.pk %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
+                                    viewBox="0 0 172 172" style=" fill:#000000;">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                        stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray=""
+                                        stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+                                        text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g fill="#e03838">
+                                            <path
+                                                d="M71.66667,14.33333l-7.16667,7.16667h-43v14.33333h7.95052l12.77962,109.33366v0.05599c0.939,7.07108 7.07882,12.44368 14.20736,12.44368h59.111c7.12853,0 13.26835,-5.37269 14.20736,-12.44368l0.014,-0.05599l12.77962,-109.33366h7.95052v-14.33333h-43l-7.16667,-7.16667zM43.89583,35.83333h84.20833l-12.55566,107.5h-59.111z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </h1>
+                    </div>
+
+                    <div class="flex mb-4">
+                        <a class="text-3xl flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1"
+                            style="text-decoration: none;">DESCRIPTION</a>
+                        <a class="text-3xl flex-grow border-b-2 border-gray-300 py-2 text-lg px-1"
+                            style="text-decoration: none;" href="{% url 'agents:agent-update' agent.pk %}">EDIT
+                            DETAILS</a>
+                    </div>
+                    <p class="text-4xl leading-relaxed mb-4">General details</p>
+                    <div class="flex border-t border-gray-300 py-2">
+                        <span class="text-gray-500">Full Name</span>
+                        <span class="ml-auto text-gray-900">{{ agent.user.first_name }} {{ agent.user.last_name}}</span>
+                    </div>
+                    <div class="flex border-t border-gray-300 py-2">
+                        <span class="text-gray-500">Email</span>
+                        <span class="ml-auto text-gray-900">{{ agent.user.email }}</span>
+                    </div>
+                    <div class="flex py-5">
+                        <center><a class="hover:text-blue-500" href="{% url 'agents:agent-list' %}"><img src="https://img.icons8.com/color/48/000000/circled-left--v3.png"/></a></center>
+                    </div>
+                </div>
+                <img alt="ecommerce" style="height: 200px;width: 200px;margin-top: 80px;margin-left: 50px;"
+                    src="https://dummyimage.com/200x200">
+            </div>
+        </div>
+    </section>
+</body>
+
+{% endblock content %}

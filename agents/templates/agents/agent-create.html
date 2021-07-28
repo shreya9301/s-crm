@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<center><h1>CREATE A NEW AGENT</h1></center>
+    <a class="hover:text-blue-500" href="{% url 'agents:agent-list' %}"><img src="https://img.icons8.com/color/48/000000/circled-left--v3.png"/></a>
+    <div class="container" style="align-items: center;color:rgb(80, 80, 80);background-color: rgb(181, 172, 182);height:450px;width: 600px;border-radius: 10px;box-shadow:10px 10px 5px #6e6a6a;">
+        <form method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+        <center><button type="submit" class="btn btn-default"> SUBMIT </button></center>
+        </form>
+    </div>
+    <br><br>
+
+{% endblock content %}

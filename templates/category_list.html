@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="text-gray-700 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <center><a class="hover:text-blue-500" href="{% url 'leads:lead-list' %}"><img
+            src="https://img.icons8.com/color/48/000000/circled-left--v3.png" /></a></center>
+      <h1 class="sm:text-5xl text-3xl font-black title-font mb-2 text-gray-900">CATEGORIES</h1>
+      <p class="text-2xl font-medium title-font mb-2 text-gray-900">
+        These categories segment the leads
+      </p>
+      <a href="{% url 'leads:category-create' %}"
+        class="sm:text-4xl text-2xl font-medium title-font mb-2 text-blue-900 hover:text-blue-500">Create a category</a>
+    </div>
+    <div class="lg:w-1/2 w-full mx-auto overflow-auto">
+      <table class="min-w-full divide-y divide-gray-500">
+        <thead>
+          <tr class="border-solid border-2 border-gray-400">
+            <th
+              class="text-3xl px-6 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-400 rounded-tl rounded-bl">
+              NAME</th>
+            <th class="text-3xl px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-400">LEAD
+              COUNT</th>
+            <th class="text-3xl px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-400">
+              REMOVE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-solid border-2 border-gray-400">
+            <td class="text-3xl px-4 py-3">Unassigned</td>
+            <td class="text-3xl px-8 py-3">{{ unassigned_lead_count }}</td>
+          </tr>
+          {% for category in category_list %}
+          <tr class="border-solid border-2 border-gray-400">
+            <td class="text-3xl px-4 py-3">
+              <a class="hover:text-blue-500" href="{% url 'leads:category-detail' category.pk %}"
+                style="text-decoration: none;">{{ category.name }}</a>
+            </td>
+            <td class="text-3xl px-4 py-3">todo count</td>
+            <td class="text-3xl px-4 py-3">
+              <a href="{% url 'leads:category-delete' category.pk %}">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 24 24"
+                  style=" fill:#000000;">
+                  <path
+                    d="M 10 2 L 9 3 L 3 3 L 3 5 L 21 5 L 21 3 L 15 3 L 14 2 L 10 2 z M 4.3652344 7 L 5.8925781 20.263672 C 6.0245781 21.253672 6.877 22 7.875 22 L 16.123047 22 C 17.121047 22 17.974422 21.254859 18.107422 20.255859 L 19.634766 7 L 4.3652344 7 z">
+                  </path>
+                </svg>
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
