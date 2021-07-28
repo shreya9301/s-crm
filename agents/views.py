@@ -24,7 +24,7 @@ class AgentCreateView(OrganisorandLoginRequiredMixin,generic.CreateView):
     def form_valid(self ,form):
         user = form.save(commit = False) #we are not saving the form detials directly to the database but we can access its details in this instance 
         user.is_agent = True
-        user.is_organisor = True
+        user.is_organisor = False
         user.set_password(f"{random.randint(0,1000000)}")
         user.save()
         Agent.objects.create(
