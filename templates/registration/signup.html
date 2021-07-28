@@ -3,7 +3,7 @@
 
 {% block content %}
 <center><h1>SIGNUP</h1></center>
-<div class="container" style="background-color:rgb(195, 191, 191);width: 600px;height:450px;border-radius: 10px;">
+<div class="container" style="background-color:rgb(195, 191, 191);width: 600px;height:600px;border-radius: 10px;">
     <form method="post">
         {% csrf_token %}
         {{ form|crispy }}
